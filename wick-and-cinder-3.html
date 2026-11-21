@@ -240,7 +240,7 @@ let R=rng(1),RS=rng(2),RB=rng(3);
 /* ---------- renderer, sky, lights ---------- */
 const stage=$('#stage');
 const renderer=new THREE.WebGLRenderer({antialias:true});
-renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));
 stage.appendChild(renderer.domElement);
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(60,1,.1,1400);
@@ -2559,7 +2559,7 @@ const _cp=collectPick;collectPick=function(it){_cp(it);if(it.type==='shard')rumb
   const ps=$('#bPause');if(ps)ps.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();if(S.mode==='play'||S.mode==='paused')togglePause();});
   const fs=$('#fsBtn');if(fs){const de=document.documentElement||{};if(!(de.requestFullscreen||de.webkitRequestFullscreen))fs.hidden=true;
     fs.addEventListener('click',()=>{try{if(document.fullscreenElement||document.webkitFullscreenElement){(document.exitFullscreen||document.webkitExitFullscreen).call(document);}else{(de.requestFullscreen||de.webkitRequestFullscreen).call(de);}}catch(_){}});}
-  try{if(matchMedia('(pointer:coarse)').matches)renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.6));}catch(_){}
+  try{if(matchMedia('(pointer:coarse)').matches)renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));}catch(_){}
   document.addEventListener('contextmenu',e=>e.preventDefault());
 })();
 /* ===================== p13: Cinder's glow — pulse, lanterns, checkpoints ===================== */
